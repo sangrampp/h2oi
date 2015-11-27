@@ -21,8 +21,15 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function() {
+.controller('AccountCtrl', function($scope, storage) {
   var account = this;
-  account.reminders = true;
-  account.targetQuantity = 3;
+  var db = storage.db;
+  account.reminders = db.reminders;
+  account.targetQuantity = db.targetQuantity;
+  $scope.$watch('account.reminders', function() {
+    db.reminders = account.reminders;
+  });
+  $scope.$watch('account.targetQuantity', function() {
+    db.targetQuantity = account.targetQuantity;
+  });
 });

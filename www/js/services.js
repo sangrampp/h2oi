@@ -47,4 +47,24 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+.service('storage', function($localStorage) {
+  var storage = this;
+
+  storage.db = $localStorage.$default({
+    reminders: true,
+    targetQuantity: 3
+  });
+
+  // storage.set = function(key, val) {
+  //   storage.db[key] = val;
+  // };
+  //
+  // storage.get = function(key) {
+  //   return storage.db[key];
+  // }
+  //
+  // storage.delete = function(key) {
+  //   delete storage.db[key];
+  // }
 });
