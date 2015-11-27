@@ -1,7 +1,7 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-      <ion-toggle  ng-model="account.reminders">
+      <ion-toggle  ng-model="account.db.reminders">
         Reminders
       </ion-toggle>
       <div class="item item-divider">
@@ -9,7 +9,7 @@
       </div>
       <div class="item range range-positive">
         <i class="icon ion-waterdrop"></i>
-        <input type="range" name="volume" min="1" max="6" ng-model="account.targetQuantity">
+        <input type="range" name="volume" min="1" max="6" ng-model="account.db.targetQuantity">
         <i class="icon ion-waterdrop"></i>
       </div>
     </ion-list>

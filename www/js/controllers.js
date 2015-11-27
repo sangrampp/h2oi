@@ -23,13 +23,16 @@ angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope, storage) {
   var account = this;
-  var db = storage.db;
-  account.reminders = db.reminders;
-  account.targetQuantity = db.targetQuantity;
-  $scope.$watch('account.reminders', function() {
-    db.reminders = account.reminders;
-  });
-  $scope.$watch('account.targetQuantity', function() {
-    db.targetQuantity = account.targetQuantity;
-  });
+  account.db = storage.db;
+
+
+
+  // account.reminders = db.reminders;
+  // account.targetQuantity = db.targetQuantity;
+  // $scope.$watch('account.reminders', function() {
+  //   db.reminders = account.reminders;
+  // });
+  // $scope.$watch('account.targetQuantity', function() {
+  //   db.targetQuantity = account.targetQuantity;
+  // });
 });
