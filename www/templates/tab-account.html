@@ -1,9 +1,17 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+      <ion-toggle  ng-model="account.reminders">
+        Reminders
+      </ion-toggle>
+      <div class="item item-divider">
+        {{account.targetQuantity}} L of H2O per day
+      </div>
+      <div class="item range range-positive">
+        <i class="icon ion-waterdrop"></i>
+        <input type="range" name="volume" min="1" max="6" ng-model="account.targetQuantity">
+        <i class="icon ion-waterdrop"></i>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

@@ -21,8 +21,8 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AccountCtrl', function() {
+  var account = this;
+  account.reminders = true;
+  account.targetQuantity = 3;
 });
