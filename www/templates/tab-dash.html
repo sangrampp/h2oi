@@ -11,10 +11,19 @@
     <div class="list card">
       <div class="item item-divider">Health</div>
       <div class="item item-body">
-        <div>
-          <a ng-click="dash.registerIntake('gulp')">Gulp</a> <br>
-          <a ng-click="dash.registerIntake('cup')">Cup</a> <br>
-          <a ng-click="dash.registerIntake('glass')">Glass</a> <br>
+          <div class="row">
+            <div class="col col-33">
+              <i class="icon ion-waterdrop"></i> <br>
+              <a ng-click="dash.registerIntake('gulp')">Gulp</a>
+            </div>
+            <div class="col col-33">
+              <i class="icon ion-coffee"></i> <br>
+              <a ng-click="dash.registerIntake('cup')">Cup</a>
+            </div>
+            <div class="col col-33">
+              <i class="icon ion-trophy"></i> <br>
+              <a ng-click="dash.registerIntake('glass')">Glass</a>
+            </div>
         </div>
       </div>
     </div>
