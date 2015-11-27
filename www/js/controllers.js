@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function(Intake, storage) {
+  var dash = this;
+
+  function calculateTotalToday() {
+    dash.totalToday = Intake.totalInDay(+new Date());
+    dash.percentageComplete = dash.totalToday/(10*storage.db.targetQuantity);
+  };
+
+  dash.registerIntake = function(intakeType) {
+    Intake.register(intakeType);
+    calculateTotalToday();
+  };
+
+  calculateTotalToday();
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called

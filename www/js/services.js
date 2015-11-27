@@ -53,7 +53,8 @@ angular.module('starter.services', [])
 
   storage.db = $localStorage.$default({
     reminders: true,
-    targetQuantity: 3
+    targetQuantity: 3,
+    intakes: []
   });
 
   // storage.set = function(key, val) {
@@ -67,4 +68,42 @@ angular.module('starter.services', [])
   // storage.delete = function(key) {
   //   delete storage.db[key];
   // }
+})
+.service('Intake', function(storage) {
+  var Intake = this;
+
+  var quantities = {
+    gulp: 50,
+    cup: 100,
+    glass: 250
+  };
+
+  Intake.register = function(intakeType) {
+    var quantity = quantities[intakeType] || 50;
+
+    var intake = {
+      quantity: quantity,
+      time: +new Date()
+    };
+
+    storage.db.intakes.push(intake);
+  };
+
+  Intake.totalInDay = function(time) {
+    if(time == undefined) {
+      time = +new Date();
+    };
+
+    var start = new Date(time).setHours(0,0,0,0);
+    var end = new Date(time).setHours(23,59,59,999);
+
+    var totalQuantity = 0;
+    angular.forEach(storage.db.intakes, function(intake) {
+      if (intake.time > start && intake.time < end) {
+        totalQuantity += intake.quantity;
+      }
+    });
+
+    return totalQuantity;
+  };
 });

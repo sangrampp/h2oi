@@ -4,7 +4,7 @@
       <div class="item item-divider">Recent Updates</div>
       <div class="item item-body">
         <div>
-          There is a fire in <b>sector 3</b>
+          Percentage complete today: {{dash.percentageComplete}}%
         </div>
       </div>
     </div>
@@ -12,7 +12,9 @@
       <div class="item item-divider">Health</div>
       <div class="item item-body">
         <div>
-          You ate an apple today!
+          <a ng-click="dash.registerIntake('gulp')">Gulp</a> <br>
+          <a ng-click="dash.registerIntake('cup')">Cup</a> <br>
+          <a ng-click="dash.registerIntake('glass')">Glass</a> <br>
         </div>
       </div>
     </div>
